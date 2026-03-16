@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C-LREX | Research Page</title>
+  <meta name="description" content="C-LREX research page: cable-driven lower limb rehabilitation exoskeleton publications, software, and project overview." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121933;
+      --panel-2: #182143;
+      --text: #edf2ff;
+      --muted: #b8c2e0;
+      --line: #2c396d;
+      --accent: #8ab4ff;
+      --accent-2: #7cf0c7;
+      --max: 1100px;
+      --shadow: 0 18px 40px rgba(0,0,0,.28);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(124,240,199,.08), transparent 20%),
+        radial-gradient(circle at top left, rgba(138,180,255,.12), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap { width: min(var(--max), calc(100% - 2rem)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(11, 16, 32, .72);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .9rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .brand-badge {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #07111f;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .hero {
+      padding: 4.8rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 1.4rem;
+      align-items: stretch;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      padding: 2rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+      padding: .35rem .7rem;
+      color: var(--accent-2);
+      font-size: .85rem;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 { line-height: 1.15; margin: 0 0 .8rem; }
+    h1 { font-size: clamp(2.1rem, 5vw, 4rem); }
+    h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
+    h3 { font-size: 1.08rem; }
+
+    p { margin: 0 0 1rem; color: var(--muted); }
+
+    .hero-actions {
+      display: flex;
+      gap: .85rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      padding: .85rem 1.1rem;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      font-weight: 600;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .btn:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+      border-color: var(--accent);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, rgba(138,180,255,.18), rgba(124,240,199,.12));
+      color: var(--text);
+    }
+
+    .btn.secondary {
+      color: var(--text);
+      background: rgba(255,255,255,.02);
+    }
+
+    .hero-side {
+      padding: 1.25rem;
+      display: grid;
+      gap: .9rem;
+    }
+
+    .stat {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 16px;
+      padding: 1rem;
+    }
+
+    .stat .num {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: .15rem;
+    }
+
+    .section {
+      padding: 1rem 0 2.4rem;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .feature {
+      padding: 1.2rem;
+      background: var(--panel);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    .pubs {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .pub {
+      display: grid;
+      grid-template-columns: 130px 1fr auto;
+      gap: 1rem;
+      padding: 1rem 1.1rem;
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 16px;
+      align-items: start;
+    }
+
+    .pub-year {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--accent-2);
+      letter-spacing: .04em;
+    }
+
+    .pub p { margin-bottom: .35rem; }
+
+    .tags {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-top: .5rem;
+    }
+
+    .tag {
+      font-size: .78rem;
+      color: var(--text);
+      background: var(--panel-2);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 999px;
+      padding: .25rem .55rem;
+    }
+
+    .tool-box {
+      padding: 1.4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .note {
+      font-size: .92rem;
+      color: var(--muted);
+      border-left: 3px solid var(--accent);
+      padding-left: .9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .tool-box,
+      .grid-3,
+      .pub {
+        grid-template-columns: 1fr;
+      }
+
+      .pub {
+        gap: .6rem;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <span class="brand-badge">CL</span>
+        <span>C-LREX Research</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#publications">Publications</a>
+        <a href="#software">Software</a>
+        <a href="#setup">Setup</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="hero-grid">
+        <div class="card hero-copy">
+          <div class="eyebrow">PhD research page · C-LREX</div>
+          <h1>C-LREX: Cable-Driven Lower Limb Rehabilitation Exoskeleton</h1>
+          <p>
+            This page presents the C-LREX research program, including simulation frameworks,
+            routing design, controller studies, bi-planar tracking, stroke gait correction, and the GUI-based C-LREX Tool.
+          </p>
+          <p>
+            It is designed as a clean GitHub Pages landing page for your publications, software, and project story.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#publications">View publications</a>
+            <a class="btn secondary" href="https://github.com/rajanprasad460/C-LREX-Tool" target="_blank" rel="noreferrer">Open C-LREX Tool</a>
+          </div>
+        </div>
+        <aside class="card hero-side">
+          <div class="stat">
+            <div class="num">7</div>
+            <div>Publications included on this page</div>
+          </div>
+          <div class="stat">
+            <div class="num">2D / 3DOF / bi-planar</div>
+            <div>Framework evolution from sagittal tracking to bi-planar routing and subject-specific optimization</div>
+          </div>
+          <div class="stat">
+            <div class="num">GUI + simulation</div>
+            <div>Repository includes examples, routing definitions, optimization zones, and result comparison workflows</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section wrap" id="about">
+      <div class="section-head">
+        <div>
+          <h2>About the project</h2>
+          <p>A concise research-facing summary suitable for academic visitors, collaborators, and students.</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <article class="feature">
+          <h3>Research focus</h3>
+          <p>
+            C-LREX investigates cable-driven lower limb rehabilitation exoskeletons with emphasis on lightweight,
+            remote actuation, routing design, safe human interaction, and gait assistance.
+          </p>
+        </article>
+        <article class="feature">
+          <h3>Methodology</h3>
+          <p>
+            The work develops generalized simulation frameworks, control allocation methods,
+            optimization routines, and subject-specific routing analysis for rehabilitation scenarios.
+          </p>
+        </article>
+        <article class="feature">
+          <h3>Applications</h3>
+          <p>
+            The project studies healthy trajectory tracking, multi-configuration comparison,
+            bi-planar gait assistance, controller trade-offs, and stroke gait impairment correction.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap" id="contributions">
+      <div class="section-head">
+        <div>
+          <h2>Core contributions</h2>
+          <p>Use this section to quickly orient first-time visitors.</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <article class="feature">
+          <h3>Generalized framework</h3>
+          <p>Frameworks for assessing cable routing, cuff placement, control performance, and system requirements.</p>
+        </article>
+        <article class="feature">
+          <h3>Bi-planar routing and tracking</h3>
+          <p>Extension from sagittal-plane analysis to 3DOF bi-planar tracking and muscle-inspired routing concepts.</p>
+        </article>
+        <article class="feature">
+          <h3>Controller and impairment analysis</h3>
+          <p>Comparative studies on PD vs MPC and simulation-based correction of post-stroke gait impairments.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap" id="publications">
+      <div class="section-head">
+        <div>
+          <h2>Selected publications</h2>
+          <p>Replace any placeholder links with DOI, publisher, or PDF links as you prefer.</p>
+        </div>
+      </div>
+      <div class="pubs">
+        <article class="pub">
+          <div class="pub-year">2022</div>
+          <div>
+            <h3>A Framework for Determining the Performance and Requirements of Cable-Driven Mobile Lower Limb Rehabilitation Exoskeletons</h3>
+            <p>Frontiers in Bioengineering and Biotechnology</p>
+            <p>Introduces a simulation-based generalized framework and identifies the 4-cable configuration as a promising option.</p>
+            <div class="tags"><span class="tag">Framework</span><span class="tag">Performance analysis</span><span class="tag">Mobile exoskeletons</span></div>
+          </div>
+          <a class="btn secondary" href="#">Add PDF/DOI</a>
+        </article>
+
+        <article class="pub">
+          <div class="pub-year">2022</div>
+          <div>
+            <h3>A Generalized Framework for the Assessment of Various Configurations of Cable-Driven Mobile Lower Limb Rehabilitation Exoskeletons</h3>
+            <p>ICBET 2022</p>
+            <p>Presents generalized routing assessment across 2-, 3-, and 4-cable conceptual configurations.</p>
+            <div class="tags"><span class="tag">Conference</span><span class="tag">Routing configurations</span><span class="tag">Torque mapping</span></div>
+          </div>
+          <a class="btn secondary" href="#">Add PDF/DOI</a>
+        </article>
+
+        <article class="pub">
+          <div class="pub-year">2023</div>
+          <div>
+            <h3>Bi-Planar Trajectory Tracking with a Novel 3DOF Cable Driven Lower Limb Rehabilitation Exoskeleton (C-LREX)</h3>
+            <p>Sensors</p>
+            <p>Extends the framework to a 3DOF lower limb model with hip adduction/abduction and bi-planar cable routing.</p>
+            <div class="tags"><span class="tag">3DOF model</span><span class="tag">Bi-planar trajectory</span><span class="tag">Optimized routing</span></div>
+          </div>
+          <a class="btn secondary" href="#">Add PDF/DOI</a>
+        </article>
+
+        <article class="pub">
+          <div class="pub-year">2023</div>
+          <div>
+            <h3>Assisting Stroke Gait with Cable Driven Lower Limb Rehabilitation Exoskeleton (C-LREX): Simulation Study</h3>
+            <p>ICBET 2023</p>
+            <p>Studies correction of multiple impaired gait patterns and cable tension requirements in simulation.</p>
+            <div class="tags"><span class="tag">Stroke gait</span><span class="tag">Simulation</span><span class="tag">Sagittal plane</span></div>
+          </div>
+          <a class="btn secondary" href="#">Add PDF/DOI</a>
+        </article>
+
+        <article class="pub">
+          <div class="pub-year">2023</div>
+          <div>
+            <h3>Influence of Controller on Cable Driven Lower Limb Rehabilitation Exoskeleton (C-LREX): PD vs MPC</h3>
+            <p>CoDIT 2023</p>
+            <p>Compares PD and NMPC control strategies, highlighting the trade-off between response speed and tracking performance.</p>
+            <div class="tags"><span class="tag">PD</span><span class="tag">NMPC</span><span class="tag">Control allocation</span></div>
+          </div>
+          <a class="btn secondary" href="#">Add PDF/DOI</a>
+        </article>
+
+        <article class="pub">
+          <div class="pub-year">2024</div>
+          <div>
+            <h3>Muscle-Inspired Bi-Planar Cable Routing: A Novel Framework for Designing Cable Driven Lower Limb Rehabilitation Exoskeletons (C-LREX)</h3>
+            <p>Scientific Reports</p>
+            <p>Introduces a muscle-inspired bi-planar routing framework, weighted multi-objective evaluation, and optimal cuff location estimation.</p>
+            <div class="tags"><span class="tag">Bio-inspired routing</span><span class="tag">Optimization</span><span class="tag">Scientific Reports</span></div>
+          </div>
+          <a class="btn secondary" href="#">Add PDF/DOI</a>
+        </article>
+
+        <article class="pub">
+          <div class="pub-year">2025</div>
+          <div>
+            <h3>Simulation of Stroke Gait Impairment Correction Using Cable-Driven Lower Limb Rehabilitation Exoskeleton (C-LREX)</h3>
+            <p>Wearable Technologies</p>
+            <p>Extends the impairment correction analysis to different anthropometries and evaluates tracking robustness under varying BMI profiles.</p>
+            <div class="tags"><span class="tag">Wearable tech</span><span class="tag">Impairment correction</span><span class="tag">Anthropometry</span></div>
+          </div>
+          <a class="btn secondary" href="#">Add PDF/DOI</a>
+        </article>
+      </div>
+      <p class="note" style="margin-top:1rem;">
+        Tip: Replace each “Add PDF/DOI” button with the final DOI, PDF, publisher page, or local asset path.
+      </p>
+    </section>
+
+    <section class="section wrap" id="software">
+      <div class="section-head">
+        <div>
+          <h2>Software and repository</h2>
+          <p>Show visitors how the research translates into a usable tool.</p>
+        </div>
+      </div>
+      <div class="card tool-box">
+        <div>
+          <h3>C-LREX Tool</h3>
+          <p>
+            The C-LREX Tool repository provides a GUI-oriented workflow for conceptual configuration simulation,
+            optimal routing parameter estimation, stroke impairment correction, and multi-configuration result comparison.
+          </p>
+          <a class="btn primary" href="https://github.com/rajanprasad460/C-LREX-Tool" target="_blank" rel="noreferrer">Visit repository</a>
+        </div>
+        <div>
+          <h3>Repository highlights</h3>
+          <ul class="list">
+            <li>Example configurations for sagittal and bi-planar models</li>
+            <li>Cable and hinge definition files for customization</li>
+            <li>Optimization-zone inputs for routing estimation</li>
+            <li>Modules for stroke correction and result comparison</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="setup">
+      <div class="section-head">
+        <div>
+          <h2>GitHub Pages setup</h2>
+          <p>Keep this section on the page or remove it after deployment.</p>
+        </div>
+      </div>
+      <div class="card" style="padding:1.4rem;">
+        <ol class="list" style="padding-left:1.3rem;">
+          <li>Create a new repository, for example <strong>clrex-research-page</strong>.</li>
+          <li>Add this file as <strong>index.html</strong> in the root of the repository.</li>
+          <li>Commit and push the file to the <strong>main</strong> branch.</li>
+          <li>In GitHub, open <strong>Settings → Pages</strong>.</li>
+          <li>Under <strong>Build and deployment</strong>, choose <strong>Deploy from a branch</strong>.</li>
+          <li>Select <strong>main</strong> and the <strong>/root</strong> folder, then save.</li>
+          <li>Wait for GitHub Pages to publish the site.</li>
+          <li>Add your PDFs, figures, and any preview images in folders such as <strong>/assets</strong> or <strong>/papers</strong>.</li>
+          <li>Update the publication buttons with the final links.</li>
+          <li>Optional: connect a custom domain later in the same Pages settings screen.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <div class="card" style="padding:1rem 1.2rem;">
+      <strong>C-LREX Research Page</strong><br />
+      Built for presenting publications, software, and the development path of the C-LREX framework.
+    </div>
+  </footer>
+</body>
+</html>

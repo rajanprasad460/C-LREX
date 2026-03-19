@@ -377,6 +377,307 @@
       </div>
     </section>
 
+
+
+
+<section class="section wrap" id="story">
+  <div class="section-head">
+    <div>
+      <h2>The C-LREX Story</h2>
+      <p>
+        C-LREX did not begin as a finished exoskeleton. It grew step by step:
+        from a simple cable-actuated leg model, to a generalized design framework,
+        to bi-planar routing inspired by human muscles, and finally to a patient-aware
+        rehabilitation concept aimed at correcting impaired gait.
+      </p>
+    </div>
+  </div>
+
+  <div style="display:grid; gap:1.5rem;">
+
+    <!-- Story intro -->
+    <div class="card" style="padding:1.5rem;">
+      <p style="font-size:1.05rem; margin:0;">
+        The central idea behind C-LREX is simple:
+        <strong>a lightweight cable can create useful joint assistance if it is routed intelligently.</strong>
+        The whole body of work then asks a bigger question:
+        <strong>how do we design that routing so it is effective, safe, and meaningful for rehabilitation?</strong>
+      </p>
+      <p style="margin:.9rem 0 0;">
+        A simple way to express the intuition is:
+        <span style="font-weight:700; color:var(--accent);">joint assistance ≈ cable force × moment arm</span>.
+        So the same cable can help a lot or very little depending on where it is placed.
+      </p>
+    </div>
+
+    <!-- 1 -->
+    <div class="card" style="padding:1.5rem;">
+      <div style="display:grid; grid-template-columns: minmax(280px, 440px) 1fr; gap:1.25rem; align-items:center;">
+        <div style="text-align:center;">
+          <img src="assets/fig1.png" alt="Basic cable-to-joint moment model for C-LREX" style="width:100%; max-width:420px; border-radius:12px;">
+          <div style="margin-top:.65rem; font-size:.9rem; color:var(--muted);">
+            Foundations of the cable-driven leg model<br>
+            <em>Frontiers 2022 / reused in later studies</em>
+          </div>
+        </div>
+        <div>
+          <h3>1. The foundation: a cable can move a leg without putting heavy motors on the joints</h3>
+          <p>
+            The earliest C-LREX work builds the problem from first principles:
+            model the lower limb as linked segments and use cable tension to create moments at the hip and knee.
+            This is the starting point of the generalized framework, which was built to compare configurations,
+            estimate requirements, and avoid expensive trial-and-error prototyping.
+          </p>
+          <p>
+            In the 2022 framework paper, the goal was not merely to build a mechanism, but to create a
+            simulation-based way to decide which cable design is actually worth pursuing.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="card" style="padding:1.5rem;">
+      <div style="display:grid; grid-template-columns: 1fr; gap:1rem;">
+        <div>
+          <h3>2. The first big realization: there is no single cable layout</h3>
+          <p>
+            Once the idea is established, the next challenge appears immediately:
+            many different cable routings are possible, and each one changes performance.
+            Some layouts are compact, some create larger moment arms, some are easier to build,
+            and some simply do not help enough.
+          </p>
+          <p>
+            This figure captures that design space. It shows why C-LREX needed a
+            <strong>generalized assessment framework</strong> rather than a single hand-picked design.
+          </p>
+        </div>
+        <div style="text-align:center;">
+          <img src="assets/fig2.png" alt="Different cable routing configurations for C-LREX" style="width:100%; border-radius:12px;">
+          <div style="margin-top:.65rem; font-size:.9rem; color:var(--muted);">
+            Routing alternatives for four-cable bi-planar C-LREX<br>
+            <em>Sensors 2023</em>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="card" style="padding:1.5rem;">
+      <div style="display:grid; grid-template-columns: minmax(280px, 520px) 1fr; gap:1.25rem; align-items:center;">
+        <div style="text-align:center;">
+          <img src="assets/fig3.png" alt="Optimization zones and cuff-location variations" style="width:100%; border-radius:12px;">
+          <div style="margin-top:.65rem; font-size:.9rem; color:var(--muted);">
+            Search zones for routing and cuff placement<br>
+            <em>Scientific Reports 2024</em>
+          </div>
+        </div>
+        <div>
+          <h3>3. From engineering intuition to optimization</h3>
+          <p>
+            After showing that routing matters, the work becomes more systematic.
+            Instead of guessing good attachment points, C-LREX defines feasible zones
+            and searches for optimal cuff locations and cable paths.
+          </p>
+          <p>
+            This is where the project shifts from “can cables assist gait?” to
+            <strong>“how do we identify subject-specific, high-performing routing choices?”</strong>
+            The answer is optimization under practical constraints.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="card" style="padding:1.5rem;">
+      <div style="display:grid; grid-template-columns: 1fr; gap:1rem;">
+        <div>
+          <h3>4. C-LREX grows from a mechanism into a design language</h3>
+          <p>
+            By this stage, the research is not just comparing one or two cable patterns.
+            It is building a whole family of concepts:
+            engineering-inspired routings, longer multi-joint cables, and later muscle-inspired arrangements.
+          </p>
+          <p>
+            This figure is important because it shows that C-LREX became a
+            <strong>framework for generating and judging concepts</strong>,
+            not just a single exoskeleton drawing.
+          </p>
+        </div>
+        <div style="text-align:center;">
+          <img src="assets/fig4.png" alt="Conceptual routing families Conf-A to Conf-F" style="width:100%; border-radius:12px;">
+          <div style="margin-top:.65rem; font-size:.9rem; color:var(--muted);">
+            Conceptual models from engineering-inspired to muscle-inspired routing<br>
+            <em>Scientific Reports 2024</em>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="card" style="padding:1.5rem;">
+      <div style="display:grid; grid-template-columns: minmax(280px, 520px) 1fr; gap:1.25rem; align-items:center;">
+        <div style="text-align:center;">
+          <img src="assets/fig5.png" alt="Muscle-inspired cable routing and bi-planar framework" style="width:100%; border-radius:12px;">
+          <div style="margin-top:.65rem; font-size:.9rem; color:var(--muted);">
+            Muscle-inspired bi-planar routing and anatomical motivation<br>
+            <em>Scientific Reports 2024</em>
+          </div>
+        </div>
+        <div>
+          <h3>5. The major leap: design begins to learn from the body</h3>
+          <p>
+            Earlier lower-limb cable systems mostly emphasized sagittal-plane motion,
+            but real gait impairment is not purely planar.
+            This is where C-LREX takes a decisive turn:
+            the routing strategy becomes <strong>bi-planar</strong> and is inspired by human muscle architecture.
+          </p>
+          <p>
+            That makes the story much stronger.
+            C-LREX is no longer only a lightweight cable device —
+            it becomes a rehabilitation concept that tries to work
+            <em>with</em> lower-limb biomechanics rather than around it.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="card" style="padding:1.5rem;">
+      <div style="display:grid; grid-template-columns: 1fr; gap:1rem;">
+        <div>
+          <h3>6. Not every clever routing is usable: safety and feasibility have to be proven</h3>
+          <p>
+            A cable route may look elegant on paper and still fail in practice.
+            It may intersect the body, interfere with another cable, violate clearance,
+            or fail to generate the required moments throughout gait.
+          </p>
+          <p>
+            This is why the C-LREX framework introduced explicit routing verification.
+            The system had to be effective, but also wearable, non-interfering, and safe.
+          </p>
+        </div>
+        <div style="text-align:center;">
+          <img src="assets/fig6.png" alt="Constraint checking and clearance verification for C-LREX" style="width:100%; border-radius:12px;">
+          <div style="margin-top:.65rem; font-size:.9rem; color:var(--muted);">
+            Constraint-driven verification: clearance, interference, and feasible routing<br>
+            <em>Scientific Reports 2024</em>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="card" style="padding:1.5rem;">
+      <div style="display:grid; grid-template-columns: minmax(280px, 520px) 1fr; gap:1.25rem; align-items:center;">
+        <div style="text-align:center;">
+          <img src="assets/fig7.png" alt="Scaled subject and gait tracking for different anthropometries" style="width:100%; border-radius:12px;">
+          <div style="margin-top:.65rem; font-size:.9rem; color:var(--muted);">
+            Subject-specific scaling and correction performance<br>
+            <em>Wearable Technologies 2025 / Scientific Reports 2024 extension</em>
+          </div>
+        </div>
+        <div>
+          <h3>7. The framework becomes patient-aware</h3>
+          <p>
+            A rehabilitation system matters only if it can adapt to real users.
+            The later C-LREX studies therefore move toward personalized analysis:
+            scaling the design to different anthropometries, estimating cable tension needs,
+            and asking whether correction remains effective across subjects and impairment levels.
+          </p>
+          <p>
+            This is where C-LREX starts to feel clinically relevant.
+            The question is no longer just “can the model track a trajectory?”
+            but “can this routing still work for a different body and a different impairment?”
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="card" style="padding:1.5rem;">
+      <div style="display:grid; grid-template-columns: minmax(280px, 520px) 1fr; gap:1.25rem; align-items:center;">
+        <div style="text-align:center;">
+          <img src="assets/fig8.png" alt="Stroke gait correction results and failure cases" style="width:100%; border-radius:12px;">
+          <div style="margin-top:.65rem; font-size:.9rem; color:var(--muted);">
+            Stroke-gait correction performance and failure cases<br>
+            <em>ICBET 2023 stroke gait simulation study</em>
+          </div>
+        </div>
+        <div>
+          <h3>8. The most honest result: some impairments can be corrected, some expose the limits</h3>
+          <p>
+            This is one of the most compelling parts of the C-LREX story.
+            The model does not claim universal success.
+            It shows that many impaired gait patterns can be guided toward healthy trajectories,
+            but severe deviations may demand cable tensions beyond the allowed range.
+          </p>
+          <p>
+            That honesty makes the work stronger.
+            It turns the framework into a decision tool:
+            it can reveal not only what is promising, but also where a given design begins to fail.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="card" style="padding:1.5rem;">
+      <div style="display:grid; grid-template-columns: minmax(280px, 480px) 1fr; gap:1.25rem; align-items:center;">
+        <div style="text-align:center;">
+          <img src="assets/fig9.png" alt="Detailed C-LREX modeling and cable force mapping" style="width:100%; border-radius:12px;">
+          <div style="margin-top:.65rem; font-size:.9rem; color:var(--muted);">
+            Detailed modeling, cuffs, hinges, and cable-force mapping<br>
+            <em>Scientific Reports 2024</em>
+          </div>
+        </div>
+        <div>
+          <h3>9. The complete picture: C-LREX becomes a practical design framework</h3>
+          <p>
+            By the end of this journey, C-LREX is not just a cable-driven concept.
+            It is a structured design pipeline that connects biomechanics, cable routing,
+            cuff placement, constraint checking, tracking, and rehabilitation goals.
+          </p>
+          <p>
+            In simple terms, the framework says:
+          </p>
+          <p style="font-weight:700; color:var(--accent);">
+            human motion + cable routing + constraints + control = rehabilitation design insight
+          </p>
+          <p>
+            That is what makes C-LREX worth reading:
+            it tells a complete story of how an assistive idea matures into a research platform.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Closing block -->
+    <div class="card" style="padding:1.6rem; text-align:center;">
+      <h3>Why this story matters</h3>
+      <p>
+        Many exoskeleton projects begin with hardware. C-LREX begins with understanding:
+        what routing works, why it works, when it fails, and how to adapt it to the user.
+      </p>
+      <p>
+        That makes the project attractive not only as a device concept,
+        but as a <strong>research framework for rehabilitation robotics</strong>.
+      </p>
+      <p style="font-size:1.05rem; color:var(--accent); margin-top:.75rem;">
+        From simple cable mechanics → generalized evaluation → bi-planar design →
+        muscle-inspired routing → subject-aware gait correction.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
     <section class="section wrap" id="contributions">
       <div class="section-head">
         <div>
